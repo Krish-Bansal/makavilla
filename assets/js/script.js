@@ -151,7 +151,7 @@ window.addEventListener("mouseover", function (event) {
 
 function sendMessage() {
   // Replace the following placeholders with your actual phone number and message
-  var phoneNumber = '1234567890'; // The recipient's phone number with the country code
+  var phoneNumber = '+9779813783811'; // The recipient's phone number with the country code
   var message = 'Hello! I would like to book an appointment.';
 
   // Form the URL for WhatsApp deep link
