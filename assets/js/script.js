@@ -39,7 +39,7 @@ addEventsOnElements(navTogglers, "click", toggleNavbar)
 // Header & Back to Top 
 
 const header = document.querySelector("[data-header]");
-const backTopBtn=document.querySelector("[data-back-top-btn]")
+const backTopBtn = document.querySelector("[data-back-top-btn]")
 let lastScrollPos = 0;
 
 
@@ -148,3 +148,28 @@ window.addEventListener("mouseover", function (event) {
     parallaxItems[i].style.transform = `translate3d(${x}px,${y}px,0px)`
   }
 })
+
+function sendMessage() {
+  // Replace the following placeholders with your actual phone number and message
+  var phoneNumber = '1234567890'; // The recipient's phone number with the country code
+  var message = 'Hello! I would like to book an appointment.';
+
+  // Form the URL for WhatsApp deep link
+  var whatsappUrl = 'https://wa.me/' + phoneNumber + '?text=' + encodeURIComponent(message);
+
+  // Form the URL for Messenger deep link
+  var messengerUrl = 'https://m.me/' + phoneNumber;
+
+  // Check if the user has WhatsApp installed, and open the deep link
+  if (isWhatsAppInstalled()) {
+    window.location.href = whatsappUrl;
+  } else {
+    // If WhatsApp is not installed, open Messenger deep link
+    window.location.href = messengerUrl;
+  }
+}
+
+function isWhatsAppInstalled() {
+  // Check if the user is on a mobile device and has WhatsApp installed
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
